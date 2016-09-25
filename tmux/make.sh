@@ -12,7 +12,7 @@ if [ -d "tmux" ]; then
   ./configure && make
   cd ..
 
-  echo "Install new Tmux-config"
+  echo "Install Tmux-config"
   cp tmux.conf ~/.tmux.conf
 
   echo "Reload config"

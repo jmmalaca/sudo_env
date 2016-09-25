@@ -28,8 +28,8 @@ Tools scripts available:
 *  tmux-continuum
 
 #### Install Tmux
-Run './build_tmux.sh'
+Run './tmux/make.sh'
 
 #### Note
-Remember, after install, the config file is store on `~/.tmux.conf`
+Remember, the config file is store on `~/.tmux.conf`
 
