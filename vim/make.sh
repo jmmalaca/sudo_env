@@ -3,7 +3,6 @@
 
 echo "Install Vim confs"
 if [ -d "~/.vim" ]; then
-
   echo "Copy Vim folders stuff"
   cp -r vim/*  ~/.vim/
 
