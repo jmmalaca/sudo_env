@@ -1,0 +1,112 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vundle:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle (required)
+Plugin 'VundleVim/Vundle.vim'
+
+" -> plugin for files tree with git status flags
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+"open NERDTree with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+
+" -> plugin for sintax
+Plugin 'scrooloose/syntastic'
+
+" -> plugin for json
+Plugin 'elzr/vim-json'
+
+" -> plugin for code completion
+Plugin 'Valloric/YouCompleteMe'
+
+" -> parenthesis style
+Plugin 'kien/rainbow_parentheses.vim'
+
+" -> plugin for when editing .tmux.conf file
+Plugin 'tmux-plugins/vim-tmux'
+
+" -> Colors plugins
+Plugin 'tomasr/molokai'
+Plugin 'flazz/vim-colorschemes'
+syntax on
+"colorscheme monokai
+colorscheme Tomorrow-Night-Eighties
+
+"  All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use: filetype plugin on
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" see :h vundle for more details or wiki for FAQ
+
+" Put your non-Plugin stuff after this line
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Syntastic recommended settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Activate Rainbow Parentheses
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" options:
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['black',       'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+" let g:rainbow_active = 1  " 0 if you want to enable it later via :RainbowToggle
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => fix delete problems in insert mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set backspace=indent,eol,start
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ...
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
