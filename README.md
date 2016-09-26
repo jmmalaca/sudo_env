@@ -4,11 +4,9 @@ This project aims to build my work/play environment within a few minutes using s
 Tools scripts available:
 * Tmux
 * Vim
+* Dots files
 
-
-## Tools descriptions
-
-###Tmux
+##Tmux
 [Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
 
 #### Tmux-config content:
@@ -28,12 +26,15 @@ Tools scripts available:
 *  tmux-continuum
 
 #### Install Tmux
-Run './tmux/make.sh'
+```bash
+cd tmux/
+./make.sh
+```
 
 #### Note
 Remember, the config file is store on `~/.tmux.conf`
 
-###Vim
+##Vim
 
 ###
 Vim uses the vimrc file for configurations.
@@ -49,7 +50,10 @@ Vim uses the vimrc file for configurations.
 * Colors plugins: molokai and vim-colorschemes
 
 ####Install Vim stuff
-Run './vim/make.sh"
+```bash
+cd vim/
+./make.sh
+```
 
 ####Install Vim plugins
 Open vim and on it run ":PluginInstall". This command will make use of Vundle to install all plugins.
@@ -58,4 +62,4 @@ Open vim and on it run ":PluginInstall". This command will make use of Vundle to
 Vim should be already installed on your system. You can check is version with the command "vim --version"
 If not, you should install vim first and then install this configurations and plugins.
 
-
+##Dots files
