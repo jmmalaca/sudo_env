@@ -1,4 +1,34 @@
+[user]
+	name = José Miguel Malaca
+	email = jose.miguel.malaca@me.com
+[commit]
+	template = ~/.git-commit-template
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	editor = vim
 [alias]
+	d = difftool
+	s = status -s
+	cl = clone
+	ci = commit
+	co = checkout
+	pull-master = pull --rebase origin master
+	br = branch
+	latest = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+	l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%
+	aN>%Creset'
+	unmerged = branch --no-merged
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	active-branches = for-each-ref --sort=committerdate refs/heads/
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
