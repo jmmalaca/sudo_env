@@ -9,6 +9,9 @@
 * **[Dots files](#dots-files)**
 
 
+## Installation
+
+**Warning:** You will use at your own risk theses configs and files. These didn't blow up my system but just in case, review the files, the code, check that what is on the file is what you really want. There can be, in some dot file, stuff that you don't want on or off, and so you should comment or delete those lines. While you do it you will learn some stuff too so enjoy the reading.
 
 ---
 
