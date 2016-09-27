@@ -2,6 +2,7 @@
 
 > Setup a nice env for you to work and play ;)
 
+
 ##What's around here:
 * **[Tmux confs](#tmux)**
 * **[Vim confs](#vim)**
@@ -9,6 +10,7 @@
 
 
 ---
+
 
 <a name="tmux"/>
 ##Tmux
@@ -72,7 +74,6 @@ If not, you should install vim first and then install this configurations and pl
 
 <a name="dots-files"/>
 ##Dots files
-
 
 
 ---
