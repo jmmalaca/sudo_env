@@ -1,14 +1,16 @@
 # sudo_env
 
-> Setup a nice env for work and play ;)
+> Setup a nice env for you to work and play ;)
 
-##What's used:
-* **[Tmux](#Tmux)**
-* **[Vim](#Vim)**
-* **[Dots files](#Dots files)**
+##What's around here:
+**[Tmux confs](tmux)**
+**[Vim confs](vim)**
+**[Dots files](dots-files)**
+
 
 ---
 
+<a name="tmux"/>
 ##Tmux
 [Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
 
@@ -37,6 +39,8 @@ cd tmux/
 #### Note
 Remember, the config file is store on `~/.tmux.conf`
 
+
+<a name="vim"/>
 ##Vim
 
 ###
@@ -65,4 +69,16 @@ Open vim and on it run ":PluginInstall". This command will make use of Vundle to
 Vim should be already installed on your system. You can check is version with the command "vim --version"
 If not, you should install vim first and then install this configurations and plugins.
 
+
+<a name="dots-files"/>
 ##Dots files
+
+
+
+
+
+---
+
+
+##Thanks to...
+
