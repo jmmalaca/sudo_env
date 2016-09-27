@@ -1,10 +1,13 @@
 # sudo_env
 
-This project aims to build my work/play environment within a few minutes using some scripts.
-Tools scripts available:
-* Tmux
-* Vim
-* Dots files
+> Setup a nice env for work and play ;)
+
+##What's used:
+* **[Tmux](#Tmux)**
+* **[Vim](#Vim)**
+* **[Dots files](#Dots files)**
+
+---
 
 ##Tmux
 [Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
