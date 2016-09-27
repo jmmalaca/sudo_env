@@ -1,6 +1,6 @@
 # sudo_env
 
-> Setup a nice env for you to work and play ;)
+> Setup a nice env to work and play ;)
 
 
 ##What's around here:
@@ -9,12 +9,14 @@
 * **[Dots files](#dots-files)**
 
 
+
 ---
 
 
 <a name="tmux"/>
 ##Tmux
-[Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
+
+###[Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
 
 #### Tmux-config content:
 * Remap prefix from 'C-b' to 'C-a'
@@ -45,8 +47,7 @@ Remember, the config file is store on `~/.tmux.conf`
 <a name="vim"/>
 ##Vim
 
-###
-Vim uses the vimrc file for configurations.
+###Vim uses the vimrc file for configurations.
 
 ####Vimrc content for vim plugins:
 * Vundle, will manage vundle itself and vim plugins
