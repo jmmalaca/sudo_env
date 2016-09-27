@@ -1,13 +1,15 @@
 # sudo_env
 
-> Setup a nice env for work and play ;)
+> Setup a nice env for you to work and play ;)
 
-##What's used:
-* **[Tmux](#Tmux)**
-* **[Vim](#Vim)**
-* **[Dots files](#Dots files)**
+##What's around here:
+* **[Tmux confs](##Tmux)**
+* **[Vim confs](##Vim)**
+* **[Dots files](##Dots files)**
+
 
 ---
+
 
 ##Tmux
 [Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
