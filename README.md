@@ -11,7 +11,7 @@
 
 ## Installation
 
-**Warning:** You will use at your own risk theses configs and files. These didn't blow up my system but just in case, review the files, the code, check that what is on the file is what you really want. There can be, in some dot file, stuff that you don't want on or off, and so you should comment or delete those lines. While you do it you will learn some stuff too so enjoy the reading.
+**Small Warning:** You will use at your own risk theses configs and files. These didn't blow up my system but just in case, review the files, the code, check that what is on the file is what you really want. There can be, in some dot file, stuff that you don't want on or off, and so you should comment or delete those lines. While you do it you will learn some stuff too so enjoy the reading.
 
 ---
 
@@ -21,7 +21,7 @@
 
 ###[Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
 
-#### Tmux-config content:
+#### Tmux-config content
 * Remap prefix from 'C-b' to 'C-a'
 * Split panes using | and -
 * Reload config file with bind 'R'
@@ -31,7 +31,7 @@
 * Loud or quiet?
 * Modes/Panes/Statusbar/Messages colors
 
-##### List of plugins used:
+##### List of plugins
 *  tmp
 *  tmux-sensible
 *  tmux-resurrect
@@ -52,7 +52,7 @@ Remember, the config file is store on `~/.tmux.conf`
 
 ###Vim uses the vimrc file for configurations.
 
-####Vimrc content for vim plugins:
+####Vimrc content for vim plugins
 * Vundle, will manage vundle itself and vim plugins
 * Nerdtree, run on vim ":NERDTree" to open it
 * Syntastic
@@ -78,10 +78,17 @@ If not, you should install vim first and then install this configurations and pl
 
 <a name="dots-files"/>
 ##Dots files
+This files are configuration files saved on the folder `~/`. To find them or you setup your system to show hidden files of you can go to your terminal and for instance `vim ~/.` plus tab key and you will see all those files.
+
+####Dots available
+
 
 
 ---
 
 
-##Thanks to...
-
+##This repo was built based on repos shared by...
+* [donbonifacio](https://github.com/donbonifacio/env)
+* [paulosilva86](https://github.com/paulosilva86/dotfiles)
+* [mathiasbynens](https://github.com/mathiasbynens/dotfiles)
+* [amix](https://github.com/amix/vimrc)
