@@ -81,8 +81,30 @@ If not, you should install vim first and then install this configurations and pl
 This files are configuration files saved on the folder `~/`. To find them or you setup your system to show hidden files of you can go to your terminal and for instance `vim ~/.` plus tab key and you will see all those files.
 
 ####Dots available
-
-
+* .curlrc
+* .git-commit-template
+* .gvimrc
+* .screenrc
+* .editorconfig
+* .git-completion.bash
+* .hgignore
+* .wgetrc
+* .aliases
+* .exports
+* .gitattributes
+* .inputrc
+* .bash_profile
+* .functions
+* .gitconfig
+* .osx*
+* .bash_prompt
+* .gdbinit
+* .gitignore
+* .rdebugrc
+* .bashrc
+* .git/
+* .gitmodules
+* .rspec
 
 ---
 
