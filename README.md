@@ -84,10 +84,7 @@ This files are configuration files saved on the folder `~/`. To find them or you
 * .curlrc #about curls
 * .git-commit-template #the name explain what's about
 * .gvimrc #about vim gui
-* .screenrc #
-* .editorconfig #
 * .git-completion.bash #about command completion with tab key
-* .hgignore #
 * .wgetrc #about wget
 * .aliases #about shell commands aliases
 * .exports #uses export command to set some shell defaults
