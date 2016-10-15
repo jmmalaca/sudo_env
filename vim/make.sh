@@ -2,7 +2,7 @@
 # Install Vim configurations
 
 echo "Install Vim confs"
-if [ -d "~/.vim" ]; then
+if [[ $(ls -a ~/.vim) ]]; then
   echo "Copy Vim folders stuff"
   cp -r vim/*  ~/.vim/
 
