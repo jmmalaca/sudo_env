@@ -11,9 +11,18 @@ if ! [[ $(ls -a ~/.tmux) ]]; then
 		sh autogen.sh
 		./configure && make
 		cd ..
+		rm -rf tmux/
 	else
 		echo "Clone tmux failed"
 	fi
+fi
+
+if ! [[ $(ls -a ~/.tmux-powerline) ]]; then
+	echo "Clone Tmux-powerline"
+	git clone https://github.com/tOOnPT/tmux-powerline.git ~/
+
+	echo "All good."
+	echo "You can edit Tmux Status Bar on the file: '~/tmux-powerline/themes/mytheme.sh'"
 fi
 
 if [[ $(ls -a ~/.tmux.conf) ]]; then

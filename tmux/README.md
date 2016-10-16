@@ -11,12 +11,14 @@
 * Design changes on Panes/Status Bar/Messaging/Window Mode/Window Status/Info
 * Loud or quiet?
 * Modes/Panes/Statusbar/Messages colors
+* and some more
 
 ##### List of plugins used:
 *  tmp
 *  tmux-sensible
 *  tmux-resurrect
 *  tmux-continuum
+*  tmux-powerline
 
 #### Install Tmux
 ```bash
@@ -25,3 +27,4 @@
 
 #### Note
 Remember, the config file is store on `~/.tmux.conf`
+and the config file for the tmux status bar is on '~/tmux-powerline/themes/mytheme.sh'
