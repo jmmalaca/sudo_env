@@ -10,16 +10,18 @@
 * **[Vim confs](#vim)**
 * **[Dots files](#dots-files)**
 * **[Git Diff/Merge Tool](#git-tools)**
-
+* **[What's cool in here](#cool-stuff)**
 
 ## Installation
 
-**Small Warning:** You will use at your own risk theses configs and files. These didn't blow up my system but just in case, review the files, the code, check that what is on the file is what you really want. There can be, in some dot file, stuff that you don't want on or off, and so you should comment or delete those lines. While you do it you will learn some stuff too so, enjoy the reading.
+**Small Warning:** You will use at your own risk theses configs and files. These didn't blow up my system but just in case, review the files, the code, check that what is on the file is what you really want. There can be, in some dot file, or event on the make scripts, stuff that you don't want, and so you should comment or delete those lines. While you do it you will learn some stuff too so, enjoy the reading.
 
-#### Install Vim/Tmux/DotsFiles stuff¬
+#### Install Vim/Tmux/DotsFiles/GitTools stuff¬
 ```bash¬
 ./install.sh
 ```
+
+##### This repository is a project always under construction
 
 ---
 
@@ -100,7 +102,7 @@ This files are configuration files saved on the folder `~/`. To find them or you
 
 #### Dots available
 * .curlrc #about curls
-* .git-commit-template #the name explain what's about
+* .git-commit-template #setup template for git commits
 * .gvimrc #about vim gui
 * .git-completion.bash #about command completion with tab key
 * .wgetrc #about wget
@@ -141,6 +143,29 @@ and to start it:
 git lfs init
 ````
 You just need to do it once so having this the Git LFS is all setup. Just to make sure you can see that on this repo we have the `P4V.dmg` file track by it using this command `git lfs track`.
+
+
+---
+
+
+<a name="git-tools"/>
+## What's cool in here
+
+Let me give you a small check list with the main cool stuff so you can have a #cool quickstart:
+
+* About `Tmux` stuff
+ * TO DO
+
+* About `Vim` stuff
+ * TO DO
+
+* About `Git` stuff
+ * TO DO
+
+* On `Dots` files
+ * TO DO
+
+
 ---
 
 
