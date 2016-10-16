@@ -57,6 +57,9 @@ and the config file for the tmux status bar is on '~/tmux-powerline/themes/mythe
 [Tmux-Cheatsheet](https://gist.github.com/tOOnPT/279f9adb004f217be1cee5a1c83cf7a5)
 
 
+---
+
+
 <a name="vim"/>
 ##Vim
 
@@ -86,6 +89,9 @@ Vim should be already installed on your system. You can check is version with th
 If not, you should install vim first and then install this configurations and plugins.
 
 
+---
+
+
 <a name="dots-files"/>
 ##Dots files
 This files are configuration files saved on the folder `~/`. To find them or you setup your system to show hidden files of you can go to your terminal and for instance `vim ~/.` plus tab key and you will see all those files.
@@ -108,6 +114,7 @@ This files are configuration files saved on the folder `~/`. To find them or you
 * .rdebugrc #about ruby debug
 * .bashrc #set bash profile file
 * .gitmodules #set some git modules
+
 
 ---
 
