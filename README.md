@@ -51,8 +51,7 @@ cd tmux/
 ```
 
 #### Note
-Remember, the config file is store on `~/.tmux.conf`
-and the config file for the tmux status bar is on '~/tmux-powerline/themes/mytheme.sh'
+Remember, the config file is store on `~/.tmux.conf`, and the config file for the tmux status bar is on `~/tmux-powerline/themes/mytheme.sh`
 
 [Tmux-Cheatsheet](https://gist.github.com/tOOnPT/279f9adb004f217be1cee5a1c83cf7a5)
 
@@ -82,10 +81,10 @@ cd vim/
 ```
 
 ####Install Vim plugins
-Open vim and on it run ":PluginInstall". This command will make use of Vundle to install all plugins.
+Open vim and on it run `:PluginInstall`. This command will make use of Vundle to install all plugins.
 
 #### Note
-Vim should be already installed on your system. You can check is version with the command "vim --version"
+Vim should be already installed on your system. You can check is version with the command `vim --version`
 If not, you should install vim first and then install this configurations and plugins.
 
 
