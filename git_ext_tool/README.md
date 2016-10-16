@@ -7,3 +7,14 @@ On this repository I already have the `P4V.dmg` for the instalation process but 
 ````bash
 ./make.sh
 ````
+
+Note:
+I left here the P4V.dmg file to try out the new [Git Large File Storage](https://github.com/tOOnPT/git-lfs). Using this I can have this `.dmg` file on the repo without spending 100MB os space because of it.To use it too don't forget to install it:
+````bash
+brew install git-lfs
+````
+and to start it:
+````bash
+git lfs init
+````
+You just need to do it once so having this the Git LFS is all setup. Just to make sure you can see that on this repo we have the `P4V.dmg` file track by it using this command `git lfs track`.

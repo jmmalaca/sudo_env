@@ -5,10 +5,11 @@
 > Setup a nice env to work and play ;)
 
 
-##What's around here:
+## What's around here:
 * **[Tmux confs](#tmux)**
 * **[Vim confs](#vim)**
 * **[Dots files](#dots-files)**
+* **[Git Diff/Merge Tool](#git-tools)**
 
 
 ## Installation
@@ -24,9 +25,9 @@
 
 
 <a name="tmux"/>
-##Tmux
+## Tmux
 
-###[Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
+### [Tmux](https://tmux.github.io) uses the tmux.conf file for configurations.
 
 #### Tmux-config content
 * Remap prefix from 'C-b' to 'C-a'
@@ -62,11 +63,11 @@ Remember, the config file is store on `~/.tmux.conf`, and the config file for th
 
 
 <a name="vim"/>
-##Vim
+## Vim
 
-###Vim uses the vimrc file for configurations.
+### Vim uses the vimrc file for configurations.
 
-####Vimrc content for vim plugins
+#### Vimrc content for vim plugins
 * Vundle, will manage vundle itself and vim plugins
 * Nerdtree, run on vim ":NERDTree" to open it
 * Syntastic
@@ -76,13 +77,13 @@ Remember, the config file is store on `~/.tmux.conf`, and the config file for th
 * Vim-tmux
 * Colors plugins: molokai and vim-colorschemes
 
-####Install Vim stuff
+#### Install Vim stuff
 ```bash
 cd vim/
 ./make.sh
 ```
 
-####Install Vim plugins
+#### Install Vim plugins
 Open vim and on it run `:PluginInstall`. This command will make use of Vundle to install all plugins.
 
 #### Note
@@ -94,10 +95,10 @@ If not, you should install vim first and then install this configurations and pl
 
 
 <a name="dots-files"/>
-##Dots files
+## Dots files
 This files are configuration files saved on the folder `~/`. To find them or you setup your system to show hidden files of you can go to your terminal and for instance `vim ~/.` plus tab key and you will see all those files.
 
-####Dots available
+#### Dots available
 * .curlrc #about curls
 * .git-commit-template #the name explain what's about
 * .gvimrc #about vim gui
@@ -119,22 +120,31 @@ This files are configuration files saved on the folder `~/`. To find them or you
 
 ---
 
-
-####Git Diff/Merge Tool
+<a name="git-tools"/>
+## Git Diff/Merge Tool
 This tool is used so we can have and different look when doing `git diff` or `git merge`. Instead of using `vim` where I think is good but not good enought, with this external tool we have a good visualization of the changes on the files.
 
 On this repository I already have the `P4V.dmg` for the instalation process but still, if you want you can download the latest version from [here](https://www.perforce.com/product/components/perforce-visual-merge-and-diff-tools) or even check from where I got the ideia, [here](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#External-Merge-and-Diff-Tools).
 
-####Install
+#### Install
 ````bash
 ./make.sh
 ````
 
-
+#### Note:
+I left here the P4V.dmg file to try out the new [Git Large File Storage](https://github.com/tOOnPT/git-lfs). Using this I can have this `.dmg` file on the repo without spending 100MB os space because of it.To use it too don't forget to install it:
+````bash
+brew install git-lfs
+````
+and to start it:
+````bash
+git lfs init
+````
+You just need to do it once so having this the Git LFS is all setup. Just to make sure you can see that on this repo we have the `P4V.dmg` file track by it using this command `git lfs track`.
 ---
 
 
-##This repo was built based on repos shared by...
+## This repo was built based on repos shared by...
 * [donbonifacio](https://github.com/donbonifacio/env)
 * [paulosilva86](https://github.com/paulosilva86/dotfiles)
 * [mathiasbynens](https://github.com/mathiasbynens/dotfiles)
