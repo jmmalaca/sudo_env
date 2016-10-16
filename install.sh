@@ -14,9 +14,16 @@ chmod 755 make.sh
 ./make.sh
 cd ..
 
-# Install dots files
+# Install Dots Files
 echo "Install Dots Files"
 cd dots/
+chmod 755 make.sh
+./make.sh
+cd ..
+
+# Install Git Diff/Merge Tool
+echo "Install Git Diff/Merge Tool"
+cd git_ext_tool
 chmod 755 make.sh
 ./make.sh
 cd ..
