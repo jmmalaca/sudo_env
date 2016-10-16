@@ -54,6 +54,9 @@ cd tmux/
 Remember, the config file is store on `~/.tmux.conf`
 and the config file for the tmux status bar is on '~/tmux-powerline/themes/mytheme.sh'
 
+[Tmux-Cheatsheet](https://gist.github.com/tOOnPT/279f9adb004f217be1cee5a1c83cf7a5)
+
+
 <a name="vim"/>
 ##Vim
 
