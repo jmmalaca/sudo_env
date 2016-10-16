@@ -26,5 +26,4 @@
 ```
 
 #### Note
-Remember, the config file is store on `~/.tmux.conf`
-and the config file for the tmux status bar is on '~/tmux-powerline/themes/mytheme.sh'
+Remember, the config file is store on `~/.tmux.conf`, and the config file for the tmux status bar is on `~/tmux-powerline/themes/mytheme.sh`
