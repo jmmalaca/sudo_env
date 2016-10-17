@@ -10,7 +10,7 @@
 * **[Vim confs](#vim)**
 * **[Dots files](#dots-files)**
 * **[Git Diff/Merge Tool](#git-tools)**
-* **[What's cool in here](#cool-stuff)**
+* **[What's cool in here](https://github.com/tOOnPT/sudo_env/wiki/What%27s-cool-in-here)**
 
 ## Installation
 
@@ -22,6 +22,7 @@
 ```
 
 ##### This repository is a project always under construction
+
 
 ---
 
@@ -143,64 +144,6 @@ and to start it:
 git lfs init
 ````
 You just need to do it once so having this the Git LFS is all setup. Just to make sure you can see that on this repo we have the `P4V.dmg` file track by it using this command `git lfs track`.
-
-
----
-
-
-<a name="git-tools"/>
-## What's cool in here
-
-Let me give you a small check list with the main cool stuff so you can have a #cool quickstart:
-
-* About `Tmux` stuff
- * We can enter Tmux commands by two ways:
-  * using the `Prefix` + command you want in this context, what I have set is the `Prefix = Ctrl + "a"`
-  * or entering `Prefix + ":"` where a command line appears so you can type tmux commands
- * These the ones that I use most:
-  * `Prefix + ":"` to open a command line
-  * For example, to start a new session you can type: `new -s <session_name>`
-  * To kill a session type `kill-session -t <session_name>`
-  * And to rename a session do `Prefix + "$"`, typing next the session name
-  * To split the window in multiple panes you can do `Perfix +`:
-   * `|` to split verticaly
-   * `-` to split horizontaly
-  * `Prefix + "x"` will remove a pane or a window where you are
-  * To resize the panes use `Prefix +`:
-   * `i` to expand up
-   * `k` to expand down
-   * `j` to expand to the right
-   * `l` to expand to the left
- * Because we can change/update the `tmux.conf`file we need to reload it on tmux so do `Prefix + "R"`
- * And because we can update our dots files and sometimes we need to restart the terminal, instead of closing it you can do `Prefix + "X"`
- * A great feautre having tmux with the plugin ressurect and continum is that we can have the terminal closed and when restarted all your sessions are saved to be reloaeded so you can continue where you were. To use this do:
-  * `Prefix + ( Ctrl + s )` save all sessions
-  * `Prefix + ( Ctrl + r )` restore all sessions
- * Another cool feature of tmux is the copy-mode. This one is like having the copy and paste for your terminal text and sometimes can be handy.To Enter this mode do `Prefix + ( Alt + "[" )` and to exit `Prefix + ( Alt + "]" )`
-  * On this copy-mode you can press the key `v` to start selecting what you want and then you can use `Prefix + ( Alt + "]" ) to paste what you have selected.
-
-* About `Vim` stuff
- * The main stuff around vim are the plugin. Having installed these you will have a nice vim to work
- * Good coloring on the code and even nice coloring about parentheses. This can be handy with languages like Clojure
- * There is the `PluginInstall` command so you install all of them, use `:q` to close it
- * You can have a file system tree entering the command `:NERDTree`, use `:q` to close it
- * There's too one plugin to check your code sintax and one for completition
- * Vim has two modes, pressing `i` and its the `insert mode` and press `v` setting you on the `visual` mode
-  * to exit from both modes use the `esq` key
- * Use the `insert` mode to type your text, code
- * And use the `visual` mode to use the ( copy or cut )  and paste feature
- * To use this cut/copy and paste feature first enter the `visual` mode. Then press `v` and select what you want. Next press `y` to copy or `c` to cut. Next put the cursor where you want to past and on the same mode press `p`
-
-* About `Git` stuff
- * On the `.gitconfig` file there is setup what's the external tool to use when `diff` or `merge` and some others configs for git but for me the main cool stuff is about setting `alias` for git commands. So, instead of writting:
-  * `git`, just type "g"
-  * `git clone`, just type "g c"
-  * `git status`, just type "g s"
-  * `git checkout (having or not -b) <branch_name>`, jut type `g go <branch_name`
- * And so on... you can check them all on the `.gitconfig` file.
-
-* On `Dots` files
- * TO DO
 
 
 ---
