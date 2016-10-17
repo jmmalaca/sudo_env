@@ -1,4 +1,11 @@
-#!/bin/bash¬
+#!/bin/bash
+
+echo "Start Git Large File System"
+brew install git-lfs
+git lfs init
+
+echo "Get the P4Merge dmg file"
+git lfs pull
 
 echo "Install P4Merge"
 hdiutil mount P4V.dmg

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # copy dots files into your dots folder ´~/´
 
 echo "Copy Dots files"
@@ -24,4 +25,4 @@ echo "copy git-completion"
 cp git-completion.bash ~/git-completion.bash
 
 echo "Setup macOS configs"
-./.osx
+./osx

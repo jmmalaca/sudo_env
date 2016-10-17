@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Build Tmux script
 
 if ! [[ $(ls -a ~/.tmux) ]]; then

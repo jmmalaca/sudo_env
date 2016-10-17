@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Install Vim configurations
 
 echo "Install Vim confs"
