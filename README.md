@@ -139,10 +139,16 @@ I left here the P4V.dmg file to try out the new [Git Large File Storage](https:/
 ````bash
 brew install git-lfs
 ````
-and to start it:
+to start it:
 ````bash
 git lfs init
 ````
+
+and to push the files do:
+````bash
+git lfs pull
+````
+
 You just need to do it once so having this the Git LFS is all setup. Just to make sure you can see that on this repo we have the `P4V.dmg` file track by it using this command `git lfs track`.
 
 
