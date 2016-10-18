@@ -16,6 +16,10 @@ if [[ $(ls -a ~/.vim) ]]; then
 	echo "And install available Plugins"
 	vim +PluginInstall +qall
 
+	echo "Install rails plugin"
+	git clone git://github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails
+	git clone git://github.com/tpope/vim-bundler.git ~/.vim/bundle/vim-bundler
+
   echo "All good, write 'vim' to start,"
   echo "First of all, to install vim pluggins do on vim:"
   echo ":PluginInstall"

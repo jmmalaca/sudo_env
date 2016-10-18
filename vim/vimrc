@@ -161,6 +161,12 @@ Plugin 'kien/rainbow_parentheses.vim'
 " -> plugin for when editing .tmux.conf file
 Plugin 'tmux-plugins/vim-tmux'
 
+" -> plugin for search something within all files on folder
+Plugin 'rking/ag.vim'
+
+" -> plugin for search for files
+Plugin 'ctrlpvim/ctrlp.vim'
+
 " -> Colors plugins
 Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
