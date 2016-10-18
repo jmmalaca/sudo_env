@@ -167,6 +167,9 @@ Plugin 'rking/ag.vim'
 " -> plugin for search for files
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" -> alternate bteween vim and tmux panes
+Plugin 'christoomey/vim-tmux-navigator'
+
 " -> Colors plugins
 Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
