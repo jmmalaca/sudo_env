@@ -10,6 +10,9 @@ if [[ $(ls -a ~/.vim) ]]; then
   echo "Install Vim config"
   cp vimrc ~/.vimrc
 
+	echo "install Silver Searcher for Ag Vim Plugin"
+	brew install the_silver_searcher
+
 	echo "Install Vim Plugin Manager, Vundle"
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
