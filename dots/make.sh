@@ -42,5 +42,9 @@ cp .wgetrc ~/.wgetrc  #wget config
 echo "copy git-completion"
 cp git-completion.bash ~/git-completion.bash
 
+echo "copy background image"
+mkdir ~/background
+cp ../background/biker.jpg ~/background/biker.jpg
+
 echo "Setup macOS configs"
 ./osx
