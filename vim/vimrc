@@ -1,60 +1,39 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""¬¬
-" => Use the Solarized Dark theme¬
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set background=dark
-" colorscheme solarized
-" let g:solarized_termtrans=1
-
 " Make Vim more useful
 set nocompatible
-
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+" Use the OS clipboard by default, on versions compiled with +clipboard
 set clipboard=unnamed
-
 " Enhance command-line completion
 set wildmenu
-
 " Allow cursor keys in insert mode
 set esckeys
-
 " Allow backspace in insert mode
 set backspace=indent,eol,start
-
 " Optimize for fast terminal connections
 set ttyfast
-
 " Add the g flag to search/replace by default
 set gdefault
-
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
-
 " Change mapleader
 let mapleader=","
-
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
-
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 " if you get an error, make sure you have: mkdir -p ~/.vim/backups
-
 set directory=~/.vim/swaps
 " if you get an error, make sure you have: mkdir -p ~/.vim/swaps
-
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
-
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
-
 " Respect modeline in files
 set modeline
 set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
+" set exrc
 set secure
 " Enable line numbers
 set number
@@ -64,7 +43,6 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
-
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
@@ -92,16 +70,13 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-
 " Use relative line numbers
 if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
-
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
-
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -111,10 +86,8 @@ function! StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
-
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
 " Automatic commands
 if has("autocmd")
 	" Enable file type detection
@@ -124,35 +97,28 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
-
 " ctrlp settings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.git', '.hg', 'Rakefile']
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn))|(node_modules|vendor|coverage|target)$'
-
 " use silver searcher
 " http://robots.thoughtbot.com/faster-grepping-in-vim
 if executable('ag')
 " Use ag over grep
 	set grepprg=ag\ --nogroup\ --nocolor
-
 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
   " ag is fast enough that CtrlP doesn't need to cache
 	let g:ctrlp_use_caching = 0
 endif
-
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-
 " bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
-
 " vim-ruby-test config
 " let g:rubytest_in_quickfix = 1
 let g:rubytest_cmd_test = "clear && ruby -Itest %p"
@@ -161,7 +127,15 @@ let g:rubytest_cmd_spec = "clear && rspec %p --debug"
 let g:rubytest_cmd_example = "clear && rspec %p -l %c --debug"
 let g:rubytest_cmd_feature = "clear && cucumber %p"
 let g:rubytest_cmd_story = "clear && cucumber %p -n '%c'"
-
+" set commands to use tabs
+set hidden
+nnoremap <c-m> :bnext<CR>
+nnoremap <c-n> :bprev<CR>
+" save vim session windows and tabs
+nnoremap <c-s> :mksession ~/.vim/.mysession.vim
+nnoremap <c-r> :source ~/.vim/.mysession.vim
+" reload vim config file without close vim
+nnoremap <c-c> :source ~/.vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -204,8 +178,11 @@ Plugin 'rking/ag.vim'
 " -> plugin for search for files
 Plugin 'ctrlpvim/ctrlp.vim'
 
-" -> alternate bteween vim and tmux panes
+" -> plugin to alternate bteween vim and tmux panes
 Plugin 'christoomey/vim-tmux-navigator'
+
+" -> plugin to create tabs
+Plugin 'ap/vim-buftabline'
 
 " -> Colors plugins
 Plugin 'tomasr/molokai'
