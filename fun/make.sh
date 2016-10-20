@@ -7,6 +7,7 @@ echo "Fun stuff"
 brew install cowsay
 brew install fortune
 gem install lolcat
+brew install cmatrix
 
 # final message :D
 cowsay All set up, enjoy! | lolcat
