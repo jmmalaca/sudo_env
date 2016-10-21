@@ -30,6 +30,9 @@ if [[ $(ls -a ~/.tmux.conf) ]]; then
 	echo "Install Tmux-config"
 	cp tmux.conf ~/.tmux.conf
 
+	echo "Install tmux_completion.sh"
+	cp tmux_completion.sh ~/.tmux_completion.sh
+
 	echo "Reload config"
 	tmux source-file ~/.tmux.conf
 
