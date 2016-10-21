@@ -129,13 +129,13 @@ let g:rubytest_cmd_feature = "clear && cucumber %p"
 let g:rubytest_cmd_story = "clear && cucumber %p -n '%c'"
 " set commands to use tabs
 set hidden
-nnoremap <c-m> :bnext<CR>
-nnoremap <c-n> :bprev<CR>
+nnoremap <C-q> :bnext<CR>
+nnoremap <C-w> :bprev<CR>
 " save vim session windows and tabs
-nnoremap <c-s> :mksession ~/.vim/.mysession.vim
-nnoremap <c-r> :source ~/.vim/.mysession.vim
+nnoremap <C-e> :mksession ~/.vim/.mysession.vim
+nnoremap <C-r> :source ~/.vim/.mysession.vim
 " reload vim config file without close vim
-nnoremap <c-c> :source ~/.vimrc
+nnoremap <C-R> :source ~/.vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,7 +155,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 "open NERDTree with Ctrl+n
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " -> plugin for sintax
 Plugin 'scrooloose/syntastic'
