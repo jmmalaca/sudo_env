@@ -3,6 +3,7 @@
 ![alt tag](http://i1276.photobucket.com/albums/y474/cartoonfull/screen_zpsjghtgiqm.png)
 
 > Setup a nice env to work and play ;)
+Well, it started because I wanted to have a place from where I could bring my work env back but then it got bigger and now this is what I use right after a format to my laptop to set up everything for me.
 
 
 ## What's around here:
