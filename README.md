@@ -10,6 +10,7 @@
 * **[Vim confs](#vim)**
 * **[Dots files](#dots-files)**
 * **[Git Diff/Merge Tool](#git-tools)**
+* **[Fun stuff](#fun-stuff)**
 * **[What's cool in here](https://github.com/tOOnPT/sudo_env/wiki/What%27s-cool-in-here)**
 
 ## Installation
@@ -113,7 +114,7 @@ This files are configuration files saved on the folder `~/`. To find them or you
 * .bash_profile #shell configs, i.e. here is set the git-completion.bash file
 * .functions #about shell function, i.e., 'mkd' command will create dir and enter it
 * .gitconfig #about git stuff
-* .osx* #about osx
+* .osx #about osx
 * .bash_prompt #shell promp based on Solarized Dark theme
 * .gitignore #ignore some stuff
 * .rdebugrc #about ruby debug
@@ -150,6 +151,31 @@ git lfs pull
 ````
 
 You just need to do it once so having this the Git LFS is all setup. Just to make sure you can see that on this repo we have the `P4V.dmg` file track by it using this command `git lfs track`.
+
+
+--
+
+<a name="fun-stuff"/>
+## Fun stuff
+Here is a make file to install some fun stuff we can have on our terminals.
+
+It will install:
+* ````bash
+cowsay Hello
+```` It will print on your terminal a cow saying Hello
+* ````bash
+fortune
+```` It will print on your terminal a random fortune message
+* ````bash
+cowsay Hello | lolcat
+```` or ````bash
+fortune | lolcat
+```` It will put some color on the text
+* ````bash
+cmatrix
+```` It will transform you console to a matrix screen like the movie.
+
+Simple things just for fun.
 
 
 ---
