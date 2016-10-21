@@ -12,6 +12,7 @@
 * **[Git Diff/Merge Tool](#git-tools)**
 * **[Fun stuff](#fun-stuff)**
 * **[Background image](#background)**
+* **[Code](#code)**
 * **[What's cool in here](https://github.com/tOOnPT/sudo_env/wiki/What%27s-cool-in-here)**
 
 ## Installation
@@ -187,6 +188,17 @@ Simple things just for fun.
 This has been my background image from some time now and honestly... why change ;)
 So, on this repo there is a `background` folder having that image that is copied
 to `~/.background/` folder when the `dots` files are instaled. Next, when the `osx` script runs, it sets this image as my background image. Change this if you like.
+
+
+---
+
+
+<a name="code"/>
+## Code
+This one will install some code stuff that we always need. Right now, the `make` script will try to install:
+* xcode command line tools
+* brew
+* ruby
 
 
 ---
