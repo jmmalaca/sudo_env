@@ -12,7 +12,7 @@ cp .bash_profile ~/.bash_profile   #bash configs, here is set the git-completion
 source ~/.bash_profile
 
 cp .bash_prompt ~/.bash_prompt  #bash promp based on Solarized Dark theme
-source ./.bash_prompt
+source ~/.bash_prompt
 
 cp .bashrc ~/.bashrc  #points to the bash_profile
 source ~/.bashrc
