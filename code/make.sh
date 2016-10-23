@@ -5,8 +5,9 @@ echo "Code stuff"
 echo "Install xcode command line tools"
 xcode-select --install
 
-echo "Install brew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#install brew stuff
+chmod 755 brew.sh
+./brew.sh
 
 echo "Install ruby"
 brew install ruby
