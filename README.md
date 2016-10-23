@@ -14,6 +14,7 @@ Well, it started because I wanted to have a place from where I could bring my wo
 * **[Fun stuff](#fun-stuff)**
 * **[Background image](#background)**
 * **[Code](#code)**
+* **[Programs](#programs)**
 * **[What's cool in here](https://github.com/tOOnPT/sudo_env/wiki/What%27s-cool-in-here)**
 
 ## Installation
@@ -200,6 +201,14 @@ This one will install some code stuff that we always need. Right now, the `make`
 * xcode command line tools
 * brew
 * ruby
+
+
+---
+
+
+<a name="programs"/>
+## Programs
+This is about install some programs I always want like skype, chrome and so on.
 
 
 ---
