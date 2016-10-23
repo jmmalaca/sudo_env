@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "Install code stuff"
+cd code
+chmod 755 make.sh
+./make.sh
+cd ..
+
 echo "Install Vim confs"
 cd vim/
 chmod 755 make.sh
@@ -20,12 +26,6 @@ cd ..
 
 echo "Install Git Diff/Merge Tool"
 cd git_ext_tool
-chmod 755 make.sh
-./make.sh
-cd ..
-
-echo "Install code stuff"
-cd code
 chmod 755 make.sh
 ./make.sh
 cd ..

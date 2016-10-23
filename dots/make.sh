@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# copy dots files into your dots folder ´~/´
+# install fzf for use on gitconfig
+# https://github.com/junegunn/fzf
+brew install fzf
 
+# copy dots files into your dots folder ´~/´
 echo "Copy Dots files"
 
 #we could do: 'cp -r .* ~/', but lets set here the list:
