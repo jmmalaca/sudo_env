@@ -36,8 +36,8 @@ chmod 755 make.sh
 ./make.sh
 cd ..
 
-echo "Install some programs"
-cd programs
-chmod 755 make.sh
-./make.sh
-cd ..
+#echo "Install some programs"
+#cd programs
+#chmod 755 make.sh
+#./make.sh
+#cd ..
