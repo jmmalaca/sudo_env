@@ -1,4 +1,4 @@
-# sudo_env
+# sudo_env ![alt_tag](http://img.shields.io/badge/sudo_env-awesome-green.svg)
 
 ![alt tag](http://i1276.photobucket.com/albums/y474/cartoonfull/screen_zpsjghtgiqm.png)
 
