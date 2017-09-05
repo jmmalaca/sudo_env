@@ -1,5 +1,73 @@
 " Make Vim more useful
 set nocompatible
+
+" ================ General Config ====================
+" "
+" "
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+
+" ================ Indentation ======================
+"
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" ================ Font ======================
+"
+"For the first one remove the spaces. Whitespace matters for the set command.
+"set guifont=Monaco:h20
+"For the second one it should be (the h specifies the height)
+" set guifont=Monospace:h20
+"My recommendation for setting the font is to do (if your version supports it)
+" set guifont=*
+"This will pop up a menu that allows you to select the font. After this type
+" set guifont?
+" To show what the current guifont is set to. After that copy that line into your vimrc or gvimrc. If there are spaces in the font add a \ to escape the space.
+" set guifont=Monospace\ 20
+
+" Editing
+set autoindent
+set expandtab
+
+" Formatting
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set numberwidth=5
+set encoding=utf-8
+
+" UI
+set ruler
+set guioptions-=T " remove MacVim GUI
+set cursorline
+set showtabline=2
+set cmdheight=2
+set winwidth=80
+set laststatus=2
+
+" Easy window splits
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+" Command display
+set showmode
+set showcmd
+
+" " Search
+set hlsearch
+set incsearch
+
 " Use the OS clipboard by default, on versions compiled with +clipboard
 set clipboard=unnamed
 " Enhance command-line completion
@@ -156,42 +224,53 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 "open NERDTree with Ctrl+n
 nnoremap <C-n> :NERDTreeToggle<CR>
-
 " -> plugin for sintax
 Plugin 'scrooloose/syntastic'
-
 " -> plugin for json
 Plugin 'elzr/vim-json'
-
 " -> plugin for code completion
 Plugin 'Valloric/YouCompleteMe'
-
 " -> parenthesis style
 Plugin 'kien/rainbow_parentheses.vim'
-
 " -> plugin for when editing .tmux.conf file
 Plugin 'tmux-plugins/vim-tmux'
-
 " -> plugin for search something within all files on folder
 Plugin 'rking/ag.vim'
-
 " -> plugin for search for files
 Plugin 'ctrlpvim/ctrlp.vim'
-
 " -> plugin to alternate bteween vim and tmux panes
 Plugin 'christoomey/vim-tmux-navigator'
-
 " -> plugin to create tabs
 Plugin 'ap/vim-buftabline'
-
 " -> Colors plugins
 Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'altercation/vim-colors-solarized'
+" -> Editor configs
+Plugin 'editorconfig/editorconfig-vim'
+" Ruby
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-fugitive'
+" Markdown
+Bundle 'tpope/vim-markdown'
+" Utils
+Bundle 'tpope/vim-commentary'
+Bundle 'vim-scripts/paredit.vim'
+
+" ctrlp setup
+let g:ctrlp_working_path_mode = 'ra'
 
 syntax on
 "colorscheme monokai
 colorscheme Tomorrow-Night-Eighties
+
+if has("gui_running")
+  " tell the term has 256 colors
+  set t_Co=256
+end
 
 "  All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -262,3 +341,27 @@ set backspace=indent,eol,start
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ...
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" -> Open NERDTree by default
+autocmd VimEnter * NERDTree
+
+" -> NERDTree config
+let NERDTreeShowHidden=1 " display hidden files
+
+" Prettier NERDTree
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" Sources
+source ~/.vim/splits.vim
+source ~/.vim/tabs.vim
+source ~/.vim/font.vim
+" source ~/.vim/ruby.vim
+source ~/.vim/javascript.vim
+
+" Keep 5 lines below and above the cursor
+set scrolloff=5
+
+autocmd VimResized * wincmd = " Automatically resize splits when resizing window
+
+
