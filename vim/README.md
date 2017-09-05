@@ -2,7 +2,7 @@
 
 ###Vim uses the vimrc file for configurations.
 
-####Vimrc content for vim plugins:
+####Vimrc content for vim [plugins](https://vimawesome.com/):
 * Vundle, will manage vundle itself and vim plugins
 * Nerdtree, run on vim ":NERDTree" to open it
 * Syntastic
