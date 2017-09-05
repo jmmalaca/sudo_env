@@ -75,3 +75,7 @@ done
 # Lock the screen (when going AFK)
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
+# PostgreSQL server
+alias psqlStart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias psqlStop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
