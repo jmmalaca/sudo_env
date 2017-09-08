@@ -114,9 +114,6 @@ set modelines=4
 " set exrc
 set secure
 
-" Enable syntax highlighting
-syntax on
-
 " Highlight current line
 set cursorline
 
@@ -308,6 +305,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ap/vim-buftabline'
 " -> Colors plugins
 Plugin 'tomasr/molokai'
+Plugin 'altercation/solarized'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'altercation/vim-colors-solarized'
 " -> Editor configs
@@ -330,14 +328,15 @@ Bundle 'vim-scripts/paredit.vim'
 " ctrlp setup
 let g:ctrlp_working_path_mode = 'ra'
 
+" Enable syntax highlighting
 syntax on
-"colorscheme monokai
-colorscheme Tomorrow-Night-Eighties
+set background=dark
+set t_Co=256
 
-if has("gui_running")
-  " tell the term has 256 colors
-  set t_Co=256
-end
+let g:solarized_termcolors=256
+colorscheme solarized
+" colorscheme monokai
+" colorscheme Tomorrow-Night-Eighties
 
 "  All of your Plugins must be added before the following line
 call vundle#end()            " required
