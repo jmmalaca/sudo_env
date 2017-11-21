@@ -1,0 +1,229 @@
+" Mostly stolen from Yan Pritzer's most excellent Yadr (github.com/skwp/dotfiles)
+
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" ================ General Config ====================
+"
+"
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
+
+"turn on syntax highlighting
+syntax on
+
+" The mapleader has to be set before vundle starts loading all
+" the plugins.
+let mapleader = "\<Space>"
+nmap <Leader>rxm :ExtractMethod<Enter>
+
+" Copy the relative path of the current file to the clipboard
+nmap <Leader>cf :silent !echo -n % \| pbcopy<Enter>
+
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+if has('persistent_undo')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+
+call plug#begin('~/.vim/plugged')
+
+" Cool plugins
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'yegappan/mru'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'Shougo/neocomplete.vim'
+Plug 'tommcdo/vim-exchange'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/CursorLineCurrentWindow'
+Plug 'victormours/better-writing.vim'
+Plug 'janko-m/vim-test'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'w0rp/ale'
+
+" Search
+Plug 'henrik/vim-indexed-search'
+Plug 'nixprime/cpsm'
+Plug 'mileszs/ack.vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Tmux
+Plug 'tmux-plugins/vim-tmux'
+Plug 'christoomey/vim-tmux-navigator'
+
+" Visuals
+Plug 'altercation/vim-colors-solarized'
+
+" Commenting
+Plug 'tomtom/tlib_vim'
+Plug 'tomtom/tcomment_vim'
+
+" HTML
+Plug 'mattn/emmet-vim'
+Plug 'slim-template/vim-slim'
+Plug 'mustache/vim-mustache-handlebars'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'claco/jasmine.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'lfilho/cosco.vim'
+
+" Ruby
+Plug 'Keithbsmiley/rspec.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'vim-ruby/vim-ruby'
+Plug 'emilsoman/spec-outline.vim'
+Plug 'victormours/vim-rspec'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
+Plug 'jgdavey/vim-blockle'
+Plug 'KurtPreston/vim-autoformat-rails'
+Plug 'ngmy/vim-rubocop'
+
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+
+" Elm
+Plug 'lambdatoast/elm.vim'
+
+
+call plug#end()
+
+syntax enable
+
+" Solarized theme
+let g:solarized_termtrans = 1
+set background=light
+colorscheme solarized
+
+if has("gui_running")
+"tell the term has 256 colors
+  set t_Co=256
+end
+
+source ~/.dotfiles/vim/splits.vim
+source ~/.dotfiles/vim/tabs.vim
+source ~/.dotfiles/vim/font.vim
+source ~/.dotfiles/vim/ruby.vim
+source ~/.dotfiles/vim/javascript.vim
+
+" Better search
+set hlsearch
+set incsearch
+
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%m
+endif
+
+
+nnoremap <Leader>a :Ack!<Space>
+
+" grep word under cursor
+nnoremap <Leader>g :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
+
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
+
+" Move normally between wrapped lines
+nmap j gj
+nmap k gk
+
+autocmd BufReadPre,FileReadPre *.md :set wrap
+
+" Enable filetype plugins for vim-textobj-rubyblock
+if has("autocmd")
+  filetype indent plugin on
+endif
+
+autocmd FocusLost * silent! wa " Automatically save file
+
+set scrolloff=5 " Keep 5 lines below and above the cursor
+
+set cursorline
+
+set laststatus=2
+set statusline=%f "tail of the filename
+set statusline+=\ c:%c
+
+command FormatJSON %!python -m json.tool
+
+autocmd VimResized * wincmd = " Automatically resize splits when resizing window
+
+"lazy js. Append ; at the end of the line
+nnoremap <Leader>; m`A;<Esc>``
+
+nnoremap H ^
+nnoremap L $
+
+if has("gui_running")
+  set fullscreen
+end
+
+nnoremap ; :
+
+" Set vertical bar as cursor in insert mode
+if exists('$TMUX')
+  let &t_SI = "\<esc>Ptmux;\<esc>\<esc>]50;CursorShape=1\x7\<esc>\\"
+  let &t_EI = "\<esc>Ptmux;\<esc>\<esc>]50;CursorShape=0\x7\<esc>\\"
+else
+  let &t_SI = "\<esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<esc>]50;CursorShape=0\x7"
+endif
+
+
+nmap <Leader>s :write<Enter>
+nmap <Leader>r :redraw!<Enter>
+
+

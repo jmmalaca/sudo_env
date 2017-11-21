@@ -1,0 +1,466 @@
+" Make Vim more useful
+set nocompatible
+
+" ================ General Config ====================
+" "
+" "
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+
+" ================ Indentation ======================
+"
+" set autoindent
+" set smartindent
+" set smarttab
+set tabstop=2
+set shiftwidth=2
+" set softtabstop=2
+set expandtab
+
+" ================ Font ======================
+"
+"For the first one remove the spaces. Whitespace matters for the set command.
+"set guifont=Monaco:h20
+"For the second one it should be (the h specifies the height)
+" set guifont=Monospace:h20
+"My recommendation for setting the font is to do (if your version supports it)
+" set guifont=*
+"This will pop up a menu that allows you to select the font. After this type
+" set guifont?
+" To show what the current guifont is set to. After that copy that line into your vimrc or gvimrc. If there are spaces in the font add a \ to escape the space.
+" set guifont=Monospace\ 20
+
+" Formatting
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set numberwidth=5
+set encoding=utf-8
+
+" UI
+set ruler
+set guioptions-=T " remove MacVim GUI
+set cursorline
+set showtabline=2
+set cmdheight=2
+set winwidth=80
+set laststatus=2
+
+" Easy window splits
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+" Command display
+set showmode
+set showcmd
+
+" " Search
+set hlsearch
+set incsearch
+
+" Use the OS clipboard by default, on versions compiled with +clipboard
+set clipboard=unnamed
+
+" Enhance command-line completion
+set wildmenu
+
+" Allow cursor keys in insert mode
+set esckeys
+
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+
+" Optimize for fast terminal connections
+set ttyfast
+
+" Add the g flag to search/replace by default
+set gdefault
+
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+
+" Change mapleader
+let mapleader=","
+
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
+
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+
+" if you get an error, make sure you have: mkdir -p ~/.vim/backups
+set directory=~/.vim/swaps
+
+" if you get an error, make sure you have: mkdir -p ~/.vim/swaps
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
+
+" Don’t create backups when editing files in certain directories
+set backupskip=/tmp/*,/private/tmp/*
+
+" Respect modeline in files
+set modeline
+set modelines=4
+
+" Enable per-directory .vimrc files and disable unsafe commands in them
+" set exrc
+set secure
+
+" Highlight current line
+set cursorline
+
+" Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
+" Highlight searches
+set hlsearch
+
+" Ignore case of searches
+set ignorecase
+
+" Highlight dynamically as pattern is typed
+set incsearch
+
+" Always show status line
+set laststatus=2
+
+" Enable mouse in all modes
+set mouse=a
+
+" Disable error bells
+set noerrorbells
+
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+
+" Show the cursor position
+set ruler
+
+" Don’t show the intro message when starting Vim
+set shortmess=atI
+
+" Show the current mode
+set showmode
+
+" Show the filename in the window titlebar
+set title
+
+" Show the (partial) command as it’s being typed
+set showcmd
+
+" Use relative line numbers
+"if exists("&relativenumber")
+"	set relativenumber
+"	au BufReadPost * set relativenumber
+"endif
+
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
+
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	" Treat .md files as Markdown
+	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+endif
+
+" ctrlp settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['.git', '.hg', 'Rakefile']
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn))|(node_modules|vendor|coverage|target)$'
+" let g:ctrlp_split_window = 1 " <CR> = New Tab
+
+" use silver searcher
+" http://robots.thoughtbot.com/faster-grepping-in-vim
+if executable('ag')
+" Use ag over grep
+	set grepprg=ag\ --nogroup\ --nocolor
+	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+	let g:ctrlp_use_caching = 0
+endif
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+" bind \ (backward slash) to grep shortcut
+" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+" vim-ruby-test config
+" let g:rubytest_in_quickfix = 1
+"
+let g:rubytest_cmd_test = "clear && ruby -Itest %p"
+let g:rubytest_cmd_testcase = "clear && ruby -Itest %p -n '/%c/'"
+let g:rubytest_cmd_spec = "clear && rspec %p --debug"
+let g:rubytest_cmd_example = "clear && rspec %p -l %c --debug"
+let g:rubytest_cmd_feature = "clear && cucumber %p"
+let g:rubytest_cmd_story = "clear && cucumber %p -n '%c'"
+
+" set commands to use buffers tabs
+noremap <C-Down> :bd<CR>
+noremap <C-Left> :bprevious<CR>
+noremap <C-Right> :bnext<CR>
+
+" Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
+" the right side. Ctrl-Shift-Tab goes the other way.
+noremap <C-Tab> :tabn<CR>
+noremap <C-S-Tab> :tabp<CR>
+
+" Switch to specific tab numbers with Command-number
+noremap <D-1> :tabn 1<CR>
+noremap <D-2> :tabn 2<CR>
+noremap <D-3> :tabn 3<CR>
+noremap <D-4> :tabn 4<CR>
+noremap <D-5> :tabn 5<CR>
+noremap <D-6> :tabn 6<CR>
+noremap <D-7> :tabn 7<CR>
+noremap <D-8> :tabn 8<CR>
+noremap <D-9> :tabn 9<CR>
+" Command-0 goes to the last tab
+noremap <D-0> :tablast<CR>
+
+" https://stackoverflow.com/questions/53664/how-to-effectively-work-with-multiple-files-in-vim
+nnoremap <Leader>f :set nomore<Bar>:ls<Bar>:set more<CR>:b<Space>
+
+" Auto ident pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+
+" save vim session windows and tabs
+" nnoremap <C-e> :mksession ~/.vim/.mysession.vim
+" nnoremap <C-r> :source ~/.vim/.mysession.vim
+
+" reload vim config file without close vim
+nnoremap <C-R> :source ~/.vimrc
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vundle:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle (required)
+Plugin 'VundleVim/Vundle.vim'
+
+" -> plugin for files tree with git status flags
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+"open NERDTree with Ctrl+n
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" -> plugin for sintax
+Plugin 'scrooloose/syntastic'
+" -> plugin for json
+Plugin 'elzr/vim-json'
+" -> plugin for code completion
+Plugin 'Valloric/YouCompleteMe'
+" -> parenthesis style
+Plugin 'kien/rainbow_parentheses.vim'
+" -> plugin for when editing .tmux.conf file
+Plugin 'tmux-plugins/vim-tmux'
+" -> plugin for search something within all files on folder
+Plugin 'rking/ag.vim'
+" -> plugin for search for files
+Plugin 'ctrlpvim/ctrlp.vim'
+" -> plugin to alternate bteween vim and tmux panes
+Plugin 'christoomey/vim-tmux-navigator'
+" -> plugin to create tabs
+Plugin 'ap/vim-buftabline'
+" -> Colors plugins
+Plugin 'tomasr/molokai'
+" Plugin 'altercation/solarized'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'altercation/vim-colors-solarized'
+" -> Editor configs
+Plugin 'editorconfig/editorconfig-vim'
+" -> Run tests faster
+Plugin 'janko-m/vim-test'
+" -> Auto format files
+Plugin 'Chiel92/vim-autoformat'
+" -> Git Diffs
+Plugin 'airblade/vim-gitgutter'
+
+" Ruby
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-fugitive'
+
+" Markdown
+Bundle 'tpope/vim-markdown'
+
+" Utils
+Bundle 'tpope/vim-commentary'
+Bundle 'vim-scripts/paredit.vim'
+
+" setup test faster
+" nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+" nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>l :TestLast<CR>
+" nmap <silent> <leader>g :TestVisit<CR>
+
+" ctrlp setup
+let g:ctrlp_working_path_mode = 'ra'
+
+" Pathogen - https://github.com/tpope/vim-pathogen
+execute pathogen#infect()
+
+" Enable syntax highlighting
+syntax on
+" set background=dark
+" let g:solarized_termcolors=256
+set background=dark
+" colorscheme solarized
+" colorscheme solarized_old
+" colorscheme monokai
+" colorscheme Tomorrow
+colorscheme Tomorrow-Night-Eighties
+
+"  All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use: filetype plugin on
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" see :h vundle for more details or wiki for FAQ
+
+" Put your non-Plugin stuff after this line
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Syntastic recommended settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Activate Rainbow Parentheses
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" options:
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['black',       'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+" let g:rainbow_active = 1  " 0 if you want to enable it later via :RainbowToggle
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => fix delete problems in insert mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set backspace=indent,eol,start
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ...
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" -> Open NERDTree by default
+" autocmd VimEnter * NERDTree
+
+" -> NERDTree config
+let NERDTreeShowHidden=1 " display hidden files
+
+" Prettier NERDTree
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" Sources
+source ~/.vim/splits.vim
+source ~/.vim/tabs.vim
+source ~/.vim/font.vim
+" source ~/.vim/ruby.vim
+source ~/.vim/javascript.vim
+
+" Keep 5 lines below and above the cursor
+set scrolloff=10
+
+autocmd VimResized * wincmd = " Automatically resize splits when resizing window
+
+" Better search
+set hlsearch
+set incsearch
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%m
+endif
+
+nnoremap <Leader>a :Ack!<Space>
+
+" grep word under cursor
+nnoremap <Leader>g :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
+
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
+
+" Move normally between wrapped lines
+nmap j gj
+nmap k gk
