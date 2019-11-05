@@ -10,18 +10,18 @@ if [[ $(ls -a ~/.vim) ]]; then
   echo "Install Vim config"
   cp vimrc ~/.vimrc
 
-	echo "install Silver Searcher for Ag Vim Plugin"
-	brew install the_silver_searcher
+  echo "install Silver Searcher for Ag Vim Plugin"
+  brew install the_silver_searcher
 
-	echo "Install Vim Plugin Manager, Vundle"
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  echo "Install Vim Plugin Manager, Vundle"
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-	echo "And install available Plugins"
-	vim +PluginInstall +qall
+  echo "And install available Plugins"
+  vim +PluginInstall +qall
 
-	echo "Install rails plugin"
-	git clone git://github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails
-	git clone git://github.com/tpope/vim-bundler.git ~/.vim/bundle/vim-bundler
+  echo "Install rails plugin"
+  git clone git://github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails
+  git clone git://github.com/tpope/vim-bundler.git ~/.vim/bundle/vim-bundler
 
   echo "All good, write 'vim' to start,"
   echo "First of all, to install vim pluggins do on vim:"
