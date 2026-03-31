@@ -43,10 +43,7 @@ A few manual steps are always needed on a new machine:
 # edit ~/.gitconfig and replace YOUR_NAME / YOUR_EMAIL
 ```
 
-**API keys** — add to `~/.zshrc` (never commit these):
-```bash
-export ANTHROPIC_API_KEY="your-key-here"
-```
+**API keys** — if any tool requires an API key, store it in the macOS Keychain or a secrets manager. Never put keys in plain text files like `~/.zshrc`.
 
 **Atuin** — log in to sync your shell history:
 ```bash
