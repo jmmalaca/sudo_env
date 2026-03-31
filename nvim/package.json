@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@herb-tools/dev-tools": "^0.7.5",
+    "@herb-tools/language-server": "^0.7.5"
+  }
+}
