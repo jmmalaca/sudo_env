@@ -1,0 +1,87 @@
+# Reload shell config
+alias reload!="source ~/.zshrc"
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+alias -- -="cd -"
+
+# Shortcuts
+alias downloads="cd ~/Downloads"
+alias desk="cd ~/Desktop"
+alias docs="cd ~/Documents"
+alias g="git"
+alias h="history"
+
+# Edit configs
+alias zshconfig="nvim ~/.zshrc"
+alias aliasconfig="nvim ~/.aliases"
+
+# Always use color output for grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# DNS
+alias googledns="networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
+alias cleandns="networksetup -setdnsservers Wi-Fi"
+alias getdns="networksetup -getdnsservers Wi-Fi"
+
+# HTTP traffic inspection
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Finder
+alias showF="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hideF="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias hideDesk="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showDesk="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Homebrew
+alias brewup='brew update && brew upgrade && brew cleanup'
+
+# Gem
+alias gemup='gem update --system && gem update && gem cleanup'
+
+# Fun
+alias fortune="fortune | cowsay | lolcat"
+
+# Docker
+alias docker_free_my_space="docker system prune -a -f"
+alias docker_bash="bin/dockerdev run bash"
+alias docker_bash_test="./bin/dockerdev start test-runner"
+
+# Services — PostgreSQL
+alias pg_start="brew services start postgresql"
+alias pg_stop="brew services stop postgresql"
+
+# Services — MySQL
+alias sql_start="brew services start mysql"
+alias sql_stop="brew services stop mysql"
+
+# Services — Redis
+alias redis_start="brew services start redis"
+alias redis_stop="brew services stop redis"
+
+# Services — MongoDB
+alias mongo_start="brew services start mongodb/brew/mongodb-community"
+alias mongo_stop="brew services stop mongodb/brew/mongodb-community"
+
+# Services — ElasticSearch
+alias elastic_start="brew services start elastic/tap/elasticsearch-full"
+alias elastic_stop="brew services stop elastic/tap/elasticsearch-full"
+
+# Services — RabbitMQ
+alias rabbit_start="brew services start rabbitmq"
+alias rabbit_stop="brew services stop rabbitmq"
+
+# Ruby gems
+alias open_gem="bundle open $2"

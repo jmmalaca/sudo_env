@@ -1,0 +1,12 @@
+
+
+# <type>(<scope>): <subject>
+#
+# Types: feat, fix, chore, docs, refactor, test, style
+# Example: feat(auth): add password reset flow
+#
+# Motivation:
+#
+# Modifications:
+#
+# Result:

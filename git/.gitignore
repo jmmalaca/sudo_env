@@ -1,0 +1,12 @@
+# Compiled Python files
+*.pyc
+
+# macOS metadata
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Desktop.ini
+Thumbs.db
