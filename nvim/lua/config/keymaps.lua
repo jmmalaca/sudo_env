@@ -27,6 +27,7 @@ vim.schedule(function()
     { "<leader>Fe", map("<leader>e"),         desc = "File tree          <leader>e" },
     { "<leader>Ff", map("<leader><leader>"),  desc = "Find files         <leader><leader>" },
     { "<leader>Fg", map("<leader>sg"),        desc = "Grep project       <leader>sg" },
+    { "<leader>Fh", map("<leader>sg"),        desc = "Grep history       Ctrl+P / Ctrl+N in prompt" },
     { "<leader>FG", map("<leader>gg"),        desc = "LazyGit            <leader>gg" },
     { "<leader>Ft", map("<leader>ft"),        desc = "Terminal           <leader>ft" },
     { "<leader>Fu", map("<leader>uf"),        desc = "Toggle autoformat  <leader>uf" },
