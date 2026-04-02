@@ -38,5 +38,6 @@ vim.schedule(function()
     { "<leader>Fb", map("<leader>bd"),        desc = "Delete buffer      <leader>bd" },
     { "<leader>FB", map("<leader>gb"),        desc = "Git blame          <leader>gb" },
     { "<leader>FM", "<Nop>",                  desc = "Multi cursor       <C-n> (repeat) → edit" },
+    { "<leader>Fc", "<Nop>",                  desc = "Toggle comment      V → select → gc" },
   })
 end)
