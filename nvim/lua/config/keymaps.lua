@@ -2,6 +2,25 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- add # frozen_string_literal: true to the first line of the current Ruby file
+vim.keymap.set(
+  "n",
+  "<leader>rf",
+  function()
+    if vim.bo.filetype ~= "ruby" then
+      vim.notify("Not a Ruby file", vim.log.levels.WARN)
+      return
+    end
+    local first_line = vim.api.nvim_buf_get_lines(0, 0, 1, false)[1]
+    if first_line == "# frozen_string_literal: true" then
+      vim.notify("Already frozen", vim.log.levels.INFO)
+      return
+    end
+    vim.api.nvim_buf_set_lines(0, 0, 0, false, { "# frozen_string_literal: true", "" })
+  end,
+  { noremap = true, silent = true, desc = "Ruby: add frozen_string_literal" }
+)
+
 -- resume last fzf-lua picker
 vim.keymap.set(
   "n",
@@ -39,5 +58,6 @@ vim.schedule(function()
     { "<leader>FB", map("<leader>gb"),        desc = "Git blame          <leader>gb" },
     { "<leader>FM", "<Nop>",                  desc = "Multi cursor       <C-n> (repeat) → edit" },
     { "<leader>Fc", "<Nop>",                  desc = "Toggle comment      V → select → gc" },
+    { "<leader>Fr", map("<leader>rf"),        desc = "Ruby frozen string  <leader>rf" },
   })
 end)
