@@ -59,5 +59,7 @@ vim.schedule(function()
     { "<leader>FM", "<Nop>",                  desc = "Multi cursor       <C-n> (repeat) → edit" },
     { "<leader>Fc", "<Nop>",                  desc = "Toggle comment      V → select → gc" },
     { "<leader>Fr", map("<leader>rf"),        desc = "Ruby frozen string  <leader>rf" },
+    { "<leader>Fo", map("zo"),                desc = "Open fold          zo (zR all, zO recursive)" },
+    { "<leader>FC", map("zc"),                desc = "Close fold         zc (zM all, zC recursive)" },
   })
 end)
