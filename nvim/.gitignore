@@ -20,3 +20,6 @@ LICENSE
 
 # Plugin lockfile — noisy, latest plugins preferred on fresh install
 lazy-lock.json
+
+# ruby-lsp custom bundle (regenerated automatically when ruby-lsp runs)
+.ruby-lsp/
