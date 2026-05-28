@@ -61,5 +61,6 @@ vim.schedule(function()
     { "<leader>Fr", map("<leader>rf"),        desc = "Ruby frozen string  <leader>rf" },
     { "<leader>Fo", map("zo"),                desc = "Open fold          zo (zR all, zO recursive)" },
     { "<leader>FC", map("zc"),                desc = "Close fold         zc (zM all, zC recursive)" },
+    { "<leader>Fy", map("<leader>y"),         desc = "Yazi at current file <leader>y" },
   })
 end)
