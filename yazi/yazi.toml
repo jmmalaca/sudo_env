@@ -1,0 +1,41 @@
+# yazi — terminal file manager config
+# Docs: https://yazi-rs.github.io/docs/configuration/yazi/
+
+[mgr]
+ratio          = [1, 4, 3]   # parent | current | preview pane widths
+sort_by        = "alphabetical"
+sort_sensitive = false
+sort_reverse   = false
+sort_dir_first = true
+linemode       = "size"      # shows file size on the right
+show_hidden    = true        # show dotfiles (toggle with `.`)
+show_symlink   = true
+
+[preview]
+wrap          = "no"
+tab_size      = 2
+max_width     = 600
+max_height    = 900
+image_delay   = 30
+image_filter  = "triangle"
+image_quality = 75
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', desc = "Open in nvim", block = true, for = "unix" },
+]
+open = [
+  { run = 'open "$@"', desc = "Open with default app", for = "macos" },
+]
+reveal = [
+  { run = 'open -R "$1"', desc = "Reveal in Finder", for = "macos" },
+]
+
+[open]
+prepend_rules = [
+  { name = "*/", use = [ "edit", "open", "reveal" ] },
+  { mime = "text/*", use = [ "edit", "reveal" ] },
+  { mime = "image/*", use = [ "open", "reveal" ] },
+  { mime = "video/*", use = [ "open", "reveal" ] },
+  { mime = "application/json", use = [ "edit", "reveal" ] },
+]

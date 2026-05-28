@@ -112,6 +112,9 @@ symlink "$DOTFILES_DIR/git/.git-commit-template" "$HOME/.git-commit-template"
 # Atuin
 symlink "$DOTFILES_DIR/atuin/config.toml" "$HOME/.config/atuin/config.toml"
 
+# Yazi
+symlink "$DOTFILES_DIR/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
+
 # Neovim
 symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 

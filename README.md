@@ -10,6 +10,7 @@ My personal dotfiles — everything needed to set up a new macOS machine the way
 | `nvim/` | Neovim config (LazyVim-based) |
 | `git/` | Git config, global gitignore, commit template |
 | `atuin/` | Atuin shell history config |
+| `yazi/` | Yazi terminal file manager config |
 | `brew/` | Brewfile with all packages and apps |
 | `background/` | Desktop wallpaper |
 | `macos/` | macOS system defaults script |
