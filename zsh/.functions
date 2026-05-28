@@ -175,3 +175,15 @@ function o() {
 function tre() {
   tree -aC -I '.git|node_modules' --dirsfirst "$@" | less -FRNX
 }
+
+# `yy` launches yazi and cd's into the last directory on exit
+function yy() {
+  local tmp
+  tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r cwd < "$tmp"
+  if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
