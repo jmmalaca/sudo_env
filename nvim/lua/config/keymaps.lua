@@ -62,5 +62,11 @@ vim.schedule(function()
     { "<leader>Fo", map("zo"),                desc = "Open fold          zo (zR all, zO recursive)" },
     { "<leader>FC", map("zc"),                desc = "Close fold         zc (zM all, zC recursive)" },
     { "<leader>Fy", map("<leader>y"),         desc = "Yazi at current file <leader>y" },
+    { "<leader>FT",  group = "Tabs" },
+    { "<leader>FTn", map(":tabnew<cr>"),      desc = "New tab            :tabnew" },
+    { "<leader>FTc", map(":tabclose<cr>"),    desc = "Close tab          :tabclose" },
+    { "<leader>FTl", map("gt"),               desc = "Next tab           gt (or <number>gt)" },
+    { "<leader>FTh", map("gT"),               desc = "Prev tab           gT" },
+    { "<leader>FTo", map("<C-w>T"),           desc = "Window to new tab  <C-w>T" },
   })
 end)
