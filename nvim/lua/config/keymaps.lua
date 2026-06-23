@@ -29,6 +29,29 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Last Search" }
 )
 
+-- manually save the session (persistence.nvim otherwise only saves on exit)
+vim.keymap.set(
+  "n",
+  "<leader>qw",
+  function()
+    pcall(function() require("neo-tree.sources.manager").close_all() end)
+    require("persistence").save()
+  end,
+  { noremap = true, silent = true, desc = "Save Session" }
+)
+
+-- restore the session, closing neo-tree first so it doesn't compete with
+-- the windows being restored
+vim.keymap.set(
+  "n",
+  "<leader>qr",
+  function()
+    pcall(function() require("neo-tree.sources.manager").close_all() end)
+    require("persistence").load()
+  end,
+  { noremap = true, silent = true, desc = "Restore Session" }
+)
+
 -- Favourites — a curated shortlist of the most-used commands.
 -- Useful as a learning aid: press <leader>F to see the menu,
 -- and gradually learn the original shortcuts shown in each description.
@@ -62,6 +85,8 @@ vim.schedule(function()
     { "<leader>Fo", map("zo"),                desc = "Open fold          zo (zR all, zO recursive)" },
     { "<leader>FC", map("zc"),                desc = "Close fold         zc (zM all, zC recursive)" },
     { "<leader>Fy", map("<leader>y"),         desc = "Yazi at current file <leader>y" },
+    { "<leader>Fs", map("<leader>qw"),        desc = "Save session       <leader>qw" },
+    { "<leader>FS", map("<leader>qr"),        desc = "Restore session    <leader>qr" },
     { "<leader>FT",  group = "Tabs" },
     { "<leader>FTn", map(":tabnew<cr>"),      desc = "New tab            :tabnew" },
     { "<leader>FTc", map(":tabclose<cr>"),    desc = "Close tab          :tabclose" },
