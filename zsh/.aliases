@@ -85,3 +85,6 @@ alias rabbit_stop="brew services stop rabbitmq"
 
 # Ruby gems
 alias open_gem="bundle open $2"
+
+# Claude Code: `claude` is the work profile, this one is personal
+alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
