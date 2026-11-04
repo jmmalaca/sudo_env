@@ -1,0 +1,29 @@
+#!/bin/bash
+# Keeps large files out of the main conversation, where they are re-sent every turn.
+# Subagents are exempt: their context is discarded, and bulk-reader has to read these files.
+# Any failure falls through to exit 0, so a broken guard never stops a read.
+
+MIN_LINES="${LARGE_READ_MIN_LINES:-350}"
+case "$MIN_LINES" in ''|*[!0-9]*) MIN_LINES=350 ;; esac
+
+input=$(cat)
+read_field() { printf '%s' "$input" | jq -r "$1 // empty" 2>/dev/null; }
+
+[ -n "$(read_field .agent_id)" ] && exit 0
+[ -n "$(read_field .tool_input.offset)" ] && exit 0
+[ -n "$(read_field .tool_input.limit)" ] && exit 0
+
+file_path=$(read_field .tool_input.file_path)
+[ -f "$file_path" ] || exit 0
+
+case "$file_path" in
+  *.pdf|*.png|*.jpg|*.jpeg|*.gif|*.webp|*.ipynb) exit 0 ;;
+esac
+
+lines=$(wc -l < "$file_path" 2>/dev/null | tr -d ' ')
+[ "${lines:-0}" -gt "$MIN_LINES" ] || exit 0
+
+reason="File is ${lines} lines (threshold ${MIN_LINES}). To understand it, delegate to the bulk-reader agent with a specific question. If you need exact content for an edit or for debugging, read just that section with offset and limit."
+
+jq -n --arg reason "$reason" \
+  '{hookSpecificOutput: {hookEventName: "PreToolUse", permissionDecision: "deny", permissionDecisionReason: $reason}}'

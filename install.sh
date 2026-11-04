@@ -118,6 +118,13 @@ symlink "$DOTFILES_DIR/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 # Neovim
 symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
+# Claude Code
+symlink "$DOTFILES_DIR/claude/hooks/guard-large-reads" "$HOME/.claude/hooks/guard-large-reads"
+symlink "$DOTFILES_DIR/claude/agents/bulk-reader.md"   "$HOME/.claude/agents/bulk-reader.md"
+symlink "$DOTFILES_DIR/claude/agents/bulk-reader.md"   "$HOME/.claude-personal/agents/bulk-reader.md"
+"$DOTFILES_DIR/claude/merge-hooks" "$HOME/.claude/settings.json"
+"$DOTFILES_DIR/claude/merge-hooks" "$HOME/.claude-personal/settings.json"
+
 # Background
 mkdir -p "$HOME/background"
 cp "$DOTFILES_DIR/background/biker.jpg" "$HOME/background/biker.jpg"
@@ -145,5 +152,6 @@ echo "    2. Add any API keys to the macOS Keychain — never store them in plai
 echo "    3. Log in to Atuin: atuin login && atuin sync"
 echo "    4. Install a Ruby version: rbenv install 3.3.7 && rbenv global 3.3.7"
 echo "    5. Install a Node version: nvm install --lts"
-echo "    6. Restart your terminal"
+echo "    6. Install RTK, which the Claude Code hooks use: see claude/README.md"
+echo "    7. Restart your terminal"
 echo ""

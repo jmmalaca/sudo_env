@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+# Adds the tracked hooks to a Claude Code settings file without touching anything else.
+# settings.json is merged rather than symlinked: Claude Code rewrites it, each profile
+# differs, and it can hold private notes that do not belong in a public repo.
+#
+# Usage: claude/merge-hooks <path-to-settings.json>
+
+set -e
+
+SETTINGS_FILE="$1"
+HOOKS_FILE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/hooks.json"
+
+if [ -z "$SETTINGS_FILE" ]; then
+  echo "Usage: claude/merge-hooks <path-to-settings.json>" >&2
+  exit 1
+fi
+
+mkdir -p "$(dirname "$SETTINGS_FILE")"
+[ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
+
+merged=$(jq --slurpfile tracked "$HOOKS_FILE" \
+  '.hooks.PreToolUse = (reduce $tracked[0].PreToolUse[] as $entry
+     (.hooks.PreToolUse // []; if any(.[]; . == $entry) then . else . + [$entry] end))' \
+  "$SETTINGS_FILE")
+
+# Writes through the existing file so its permissions stay as they are.
+printf '%s\n' "$merged" > "$SETTINGS_FILE"

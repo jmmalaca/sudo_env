@@ -11,6 +11,7 @@ My personal dotfiles — everything needed to set up a new macOS machine the way
 | `git/` | Git config, global gitignore, commit template |
 | `atuin/` | Atuin shell history config |
 | `yazi/` | Yazi terminal file manager config |
+| `claude/` | Claude Code hooks, agents, and token-saving log |
 | `brew/` | Brewfile with all packages and apps |
 | `background/` | Desktop wallpaper |
 | `macos/` | macOS system defaults script |
@@ -83,6 +84,10 @@ The `macos/setup.sh` script configures sensible macOS defaults — Finder, Dock,
 - **History:** Atuin (synced across machines)
 - **Aliases:** `~/.aliases` — navigation, git, services (pg, mysql, redis, docker), and more
 - **Functions:** `~/.functions` — `mkd`, `v`, `o`, `server`, `json`, `calc`, `fs`, `gz`, `getcertnames`, and more
+
+## Claude Code
+
+Hooks and agents shared by both Claude Code profiles, plus a log of token-saving changes. See [`claude/README.md`](claude/README.md).
 
 ## Git
 
