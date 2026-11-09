@@ -130,6 +130,8 @@ symlink "$DOTFILES_DIR/claude/agents/bulk-reader.md"   "$HOME/.claude/agents/bul
 symlink "$DOTFILES_DIR/claude/agents/bulk-reader.md"   "$HOME/.claude-personal/agents/bulk-reader.md"
 "$DOTFILES_DIR/claude/merge-hooks" "$HOME/.claude/settings.json"
 "$DOTFILES_DIR/claude/merge-hooks" "$HOME/.claude-personal/settings.json"
+"$DOTFILES_DIR/claude/merge-sandbox" "$HOME/.claude/settings.json"
+"$DOTFILES_DIR/claude/merge-sandbox" "$HOME/.claude-personal/settings.json"
 
 # Background
 mkdir -p "$HOME/background"

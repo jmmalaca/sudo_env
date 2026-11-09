@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Merges the tracked sandbox config into a Claude Code settings file.
+# Lists are unioned, so entries already in the profile are kept; other values from
+# sandbox.json win. Merged, not symlinked, for the same reasons as merge-hooks.
+#
+# Usage: claude/merge-sandbox <path-to-settings.json>
+
+set -e
+
+SETTINGS_FILE="$1"
+SANDBOX_FILE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/sandbox.json"
+
+if [ -z "$SETTINGS_FILE" ]; then
+  echo "Usage: claude/merge-sandbox <path-to-settings.json>" >&2
+  exit 1
+fi
+
+mkdir -p "$(dirname "$SETTINGS_FILE")"
+[ -f "$SETTINGS_FILE" ] || echo '{}' > "$SETTINGS_FILE"
+
+merged=$(jq --slurpfile tracked "$SANDBOX_FILE" '
+  def deep_union($current; $incoming):
+    if ($current | type) == "object" and ($incoming | type) == "object" then
+      reduce ($incoming | keys_unsorted[]) as $key
+        ($current; .[$key] = deep_union($current[$key]; $incoming[$key]))
+    elif ($current | type) == "array" and ($incoming | type) == "array" then
+      reduce $incoming[] as $entry
+        ($current; if any(.[]; . == $entry) then . else . + [$entry] end)
+    else
+      $incoming
+    end;
+  .sandbox = deep_union(.sandbox // {}; $tracked[0])
+' "$SETTINGS_FILE")
+
+# Writes through the existing file so its permissions stay as they are.
+printf '%s\n' "$merged" > "$SETTINGS_FILE"

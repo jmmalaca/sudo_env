@@ -1,0 +1,69 @@
+{
+  "enabled": true,
+  "excludedCommands": [
+    "docker *",
+    "docker-compose *",
+    "git push *",
+    "git pull *",
+    "git fetch *",
+    "git clone *",
+    "git ls-remote *",
+    "rtk git push *",
+    "rtk git pull *",
+    "rtk git fetch *",
+    "rtk git clone *",
+    "rtk git ls-remote *",
+    "rtk docker *",
+    "rtk docker-compose *",
+    "ssh *"
+  ],
+  "network": {
+    "allowLocalBinding": true,
+    "allowedDomains": [
+      "github.com",
+      "*.github.com",
+      "*.githubusercontent.com",
+      "ghcr.io",
+      "rubygems.org",
+      "*.rubygems.org",
+      "registry.npmjs.org",
+      "registry.yarnpkg.com",
+      "formulae.brew.sh"
+    ]
+  },
+  "filesystem": {
+    "denyRead": [
+      "~/.aws",
+      "~/.ssh",
+      "~/.gnupg",
+      "~/.netrc",
+      "~/.git-credentials",
+      "~/.config/gh",
+      "~/.config/gcloud",
+      "~/.docker/config.json",
+      "~/.kube/config",
+      "~/.npmrc",
+      "~/.pypirc",
+      "~/.cargo/credentials.toml",
+      "~/.azure",
+      "~/.terraformrc",
+      "~/.terraform.d"
+    ]
+  },
+  "credentials": {
+    "envVars": [
+      { "name": "GITHUB_TOKEN", "mode": "deny" },
+      { "name": "GH_TOKEN", "mode": "deny" },
+      { "name": "AWS_ACCESS_KEY_ID", "mode": "deny" },
+      { "name": "AWS_SECRET_ACCESS_KEY", "mode": "deny" },
+      { "name": "AWS_SESSION_TOKEN", "mode": "deny" },
+      { "name": "NPM_TOKEN", "mode": "deny" },
+      { "name": "ANTHROPIC_API_KEY", "mode": "deny" },
+      { "name": "OPENAI_API_KEY", "mode": "deny" },
+      { "name": "RENDER_API_KEY", "mode": "deny" },
+      { "name": "DATABASE_URL", "mode": "deny" },
+      { "name": "RAILS_MASTER_KEY", "mode": "deny" },
+      { "name": "SECRET_KEY", "mode": "deny" }
+    ]
+  }
+}
