@@ -22,6 +22,7 @@ brew "yazi"          # terminal file manager
 brew "neovim"
 
 # Git
+brew "git"           # newer than Apple's bundled git
 brew "diff-so-fancy"
 brew "lazygit"
 brew "jesseduffield/lazydocker/lazydocker"
