@@ -40,9 +40,10 @@ The script will:
 
 A few manual steps are always needed on a new machine:
 
-**Git config** — fill in your name and email:
+**Git config:** `~/.gitconfig` is a symlink to the tracked `git/.gitconfig`. Your name, email and anything else specific to one machine (like credential helpers) go in `~/.gitconfig.local`, which isn't tracked. `install.sh` creates it with placeholders:
 ```bash
-# edit ~/.gitconfig and replace YOUR_NAME / YOUR_EMAIL
+# edit ~/.gitconfig.local and replace YOUR_NAME / YOUR_EMAIL
+git config --file ~/.gitconfig.local user.email "you@example.com"   # machine-only settings go here
 ```
 
 **API keys** — if any tool requires an API key, store it in the macOS Keychain or a secrets manager. Never put keys in plain text files like `~/.zshrc`.

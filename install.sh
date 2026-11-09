@@ -110,6 +110,11 @@ symlink "$DOTFILES_DIR/git/.gitignore"           "$HOME/.gitignore"
 symlink "$DOTFILES_DIR/git/.git-commit-template" "$HOME/.git-commit-template"
 symlink "$DOTFILES_DIR/git/hooks/commit-msg"     "$HOME/.git-hooks/commit-msg"
 
+# Identity lives outside the repo so the tracked .gitconfig never holds personal data
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+  printf '[user]\n  name = YOUR_NAME\n  email = YOUR_EMAIL\n' > "$HOME/.gitconfig.local"
+fi
+
 # Atuin
 symlink "$DOTFILES_DIR/atuin/config.toml" "$HOME/.config/atuin/config.toml"
 
@@ -148,7 +153,7 @@ echo ""
 echo "==> All done!"
 echo ""
 echo "    Next steps:"
-echo "    1. Edit ~/.gitconfig — fill in your name and email"
+echo "    1. Edit ~/.gitconfig.local — fill in your name and email"
 echo "    2. Add any API keys to the macOS Keychain — never store them in plain text files"
 echo "    3. Log in to Atuin: atuin login && atuin sync"
 echo "    4. Install a Ruby version: rbenv install 3.3.7 && rbenv global 3.3.7"

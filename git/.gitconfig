@@ -1,14 +1,9 @@
-[user]
-  name = YOUR_NAME
-  email = YOUR_EMAIL
-
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
   pager = diff-so-fancy | less --tabs=4 -RFX
   whitespace = space-before-tab,-indent-with-non-tab,trailing-space
   trustctime = false
-  precomposeunicode = false
   hooksPath = ~/.git-hooks
 
 [interactive]
@@ -16,10 +11,6 @@
 
 [color]
   ui = true
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
 
 [color "branch"]
   current = yellow reverse
@@ -59,7 +50,7 @@
   autoStash = true
 
 [help]
-  autocorrect = 1
+  autocorrect = prompt
 
 [alias]
   # Status
@@ -116,3 +107,7 @@
 
 [init]
   defaultBranch = main
+
+# Machine-only settings (identity, credential helpers). Kept last so they win.
+[include]
+  path = ~/.gitconfig.local
