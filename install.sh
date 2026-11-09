@@ -108,6 +108,7 @@ symlink "$DOTFILES_DIR/zsh/.functions" "$HOME/.functions"
 symlink "$DOTFILES_DIR/git/.gitconfig"           "$HOME/.gitconfig"
 symlink "$DOTFILES_DIR/git/.gitignore"           "$HOME/.gitignore"
 symlink "$DOTFILES_DIR/git/.git-commit-template" "$HOME/.git-commit-template"
+symlink "$DOTFILES_DIR/git/hooks/commit-msg"     "$HOME/.git-hooks/commit-msg"
 
 # Atuin
 symlink "$DOTFILES_DIR/atuin/config.toml" "$HOME/.config/atuin/config.toml"

@@ -9,6 +9,7 @@
   whitespace = space-before-tab,-indent-with-non-tab,trailing-space
   trustctime = false
   precomposeunicode = false
+  hooksPath = ~/.git-hooks
 
 [interactive]
   diffFilter = diff-so-fancy --patch

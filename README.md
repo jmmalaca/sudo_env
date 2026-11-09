@@ -95,3 +95,4 @@ Hooks and agents shared by both Claude Code profiles, plus a log of token-saving
 - **Fuzzy branch checkout:** `git b` (powered by fzf)
 - **Key aliases:** `s` (status), `lg` (log graph), `co` (checkout), `please` (force-with-lease), `dm` (delete merged branches)
 - **Commit template:** Motivation / Modifications / Result sections
+- **Global `commit-msg` hook:** `git/hooks/commit-msg`, symlinked into `~/.git-hooks/` and enabled with `core.hooksPath`. Strips Claude attribution trailers (`Co-Authored-By: Claude`, `Claude-Session:`, "Generated with Claude Code") from every commit. Because a global `core.hooksPath` turns off each repo's `.git/hooks/`, the hook hands off to the repo's own `commit-msg` if there is one. Other hook types (`pre-commit`, `pre-push`) need the same pass-through before a repo can rely on them. Undo with `git config --global --unset core.hooksPath`.

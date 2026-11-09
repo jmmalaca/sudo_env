@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Global commit-msg hook: strips AI attribution trailers from every commit.
+f="$1"
+perl -i -ne '
+  next if /^Co-Authored-By:\s*Claude/i;
+  next if /^Claude-Session:/i;
+  next if /Generated with .{0,3}\[?Claude Code/i;
+  next if m{claude\.ai/code/session};
+  print' "$f"
+
+# A global core.hooksPath disables .git/hooks, so hand off to the repo's own hook if present
+repo_hook="$(git rev-parse --git-common-dir)/hooks/commit-msg"
+if [ -x "$repo_hook" ]; then
+  exec "$repo_hook" "$@"
+fi
